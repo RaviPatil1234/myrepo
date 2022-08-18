@@ -29,14 +29,7 @@ pipeline {
             }
         }
         
-        stage('Deployment') {
-            steps {
-                script {
-                    sh'helm upgrade -f ./helmchart-document/values-dev.yaml flikshop-document-api --install  --namespace dev ./helmchart-document --set image.repository=028054224963.dkr.ecr.us-west-2.amazonaws.com/flikshop-document-api  --set image.tag=latest --set tracing.enabled=true'
-
-                }
-            }
-        }
+        
         
         stage('Cleaning Up') {
             steps {
